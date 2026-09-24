@@ -13,10 +13,24 @@ jobs:
         run: uname -a
       - name: Show my name
         run: echo "My name is Dhruv Sharma"
+
   bye:
     runs-on: ubuntu-latest
     steps:
       - name: Print goodbye message
         run: echo "Bye from GitHub Actions!"
-      - name: show last commit id
-        run: git rev-parse HEAD
+
+  secrets-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check secret
+        env:
+          DEMO_SECRET: ${{ secrets.DEMO_SECRET }}
+        run: |
+          if [ -n "$DEMO_SECRET" ]; then
+            echo "Secret is available."
+          else
+            echo "Secret is not configured."
+            exit 1
+          fi
+
