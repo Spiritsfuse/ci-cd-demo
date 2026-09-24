@@ -19,7 +19,9 @@ jobs:
     steps:
       - name: Print goodbye message
         run: echo "Bye from GitHub Actions!"
-
+      - name: show last commit id
+        run: git rev-parse HEAD
+        
   secrets-demo:
     runs-on: ubuntu-latest
     steps:
