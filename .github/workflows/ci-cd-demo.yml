@@ -13,3 +13,10 @@ jobs:
         run: uname -a
       - name: Show my name
         run: echo "My name is Dhruv Sharma"
+  bye:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print goodbye message
+        run: echo "Bye from GitHub Actions!"
+      - name: show last commit id
+        run: git rev-parse HEAD
